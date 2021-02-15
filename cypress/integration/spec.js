@@ -5,7 +5,7 @@ describe('page', () => {
     cy.intercept(
       {
         method: `POST`,
-        url: `https://graph.develop.convosight.com/graphql`
+        url: `will send in mail`
       },
       req => {
         if (req.body.query.includes("ListInsightViewMetricsByInsightViewId")) {
@@ -24,16 +24,17 @@ describe('page', () => {
       .as(`BtnSubmit`)
       .should(`be.disabled`)
       .get(`[data-placeholder="Email"]`)
-      .type("email") // will send in mail
+      .type("csadmin@convosight.com") // will send in mail
       .get(`[data-placeholder="Password"]`)
-      .type("password") //will send in mail
+      .type("EXb5Xj%Y6") //will send in mail
       .get(`@BtnSubmit`)
       .should(`be.enabled`)
       .click()
       .get(`[alt="convosight logo"]`,{timeout:30000});
       cy.get(`.brand-list-wrapper > :nth-child(1)`).click();
       cy.get(`.link-btn`,{timeout:30000}).click();
-      cy.wait(`@ListInsightViewMetricsByInsightViewId`,{timeout:120000})
+      cy.wait(120000);
+     
       
 
      
