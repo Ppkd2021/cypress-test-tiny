@@ -24,9 +24,9 @@ describe('page', () => {
       .as(`BtnSubmit`)
       .should(`be.disabled`)
       .get(`[data-placeholder="Email"]`)
-      .type("csadmin@convosight.com")
+      .type("email") // will send in mail
       .get(`[data-placeholder="Password"]`)
-      .type("EXb5Xj%Y6")
+      .type("password") //will send in mail
       .get(`@BtnSubmit`)
       .should(`be.enabled`)
       .click()
